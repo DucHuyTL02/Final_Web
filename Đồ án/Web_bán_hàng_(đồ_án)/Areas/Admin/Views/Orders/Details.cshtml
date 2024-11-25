@@ -1,0 +1,38 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.Order
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Đơn Hàng #@Model.OrderID</h2>
+
+<div>
+    <h4>Khách Hàng: @Model.Customer.CustomerName</h4>
+    <p>Email: @Model.Customer.CustomerEmail</p>
+    <p>Ngày Đặt: @Model.OrderDate.ToString("dd/MM/yyyy")</p>
+    <p>Trạng Thái: @Model.TotalAmount</p>
+</div>
+
+<h4>Danh Sách Sản Phẩm</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Giá</th>
+            <th>Tổng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model.OrderDetails)
+        {
+            <tr>
+                <td>@detail.Product.ProductName</td>
+                <td>@detail.Quantity</td>
+                <td>@detail.UnitPrice.ToString("C0")</td>
+                <td>@(detail.Quantity * detail.UnitPrice).ToString("C0")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,94 @@
+﻿
+
+@{
+    ViewBag.Title = "Banner";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quảng Cáo Sản Phẩm</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .product-title {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .product-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .product-subtitle {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #777;
+        }
+
+        .product-details {
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .promotion {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+            .promotion h4 {
+                color: #007bff;
+                margin-bottom: 10px;
+            }
+
+            .promotion p {
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="product-title">SEIKO PRESAGE CLASSIC SERIES</h1>
+        <img src="~/image/Banner_home.png" alt="Seiko Presage Classic Series" class="product-image">
+        <div class="product-subtitle">
+            Điểm nhấn văn hóa tơ lụa 200 năm Nhật Bản trên mặt số
+        </div>
+        <div class="product-description">
+            Seiko Presage Classic Series là dòng đồng hồ chất lượng cao dựa trên những câu chuyện, truyền thống và nghệ thuật dệt vải thủ công lâu đời 200 năm Nhật Bản. Lấy cảm hứng từ màu sắc, vật liệu và kết cấu của vải lụa Nhật Bản để thể hiện sự mềm mại, thanh lịch trong kiểu dáng thiết kế.
+        </div>
+
+        <div class="promotion">
+            <h4>SEIKO PRESAGE STYLE 60'S</h4>
+            <img src="~/image/qc1.png" alt="Seiko Presage Classic Series" class="product-image">
+
+            <p>Khám phá vẻ đẹp cổ điển và hiện đại với SEIKO PRESAGE STYLE 60'S. Thiết kế ấn tượng, chất lượng hoàn hảo.</p>
+        </div>
+
+        <div class="promotion">
+            <h4>SEIKO PRESAGE Cocktail</h4>
+            <img src="~/image/qc2.png" alt="Seiko Presage Classic Series" class="product-image">
+
+            <p>Trải nghiệm sự thanh lịch và quý phái với SEIKO PRESAGE Cocktail, cảm hứng từ những ly cocktail đầy màu sắc.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+

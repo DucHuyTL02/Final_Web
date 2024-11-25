@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Web_bán_hàng__đồ_án_.Models.Product>
+
+
+@{
+    ViewBag.Title = "FilterWatches";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<h2>Danh Sách Đồng Hồ Theo Yêu Cầu</h2>
+
+<p>
+    @if (ViewBag.FilterType == "MenWatches" || ViewBag.FilterType == "WomenWatches" || ViewBag.FilterType == "CoupleWatches")
+    {
+        <span>Khoảng giá: @ViewBag.FilterValue</span>
+    }
+    else if (ViewBag.FilterType == "Thương hiệu")
+    {
+        <span>Thương hiệu: @ViewBag.FilterValue</span>
+    }
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Thương Hiệu</th>
+            <th>Giá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var watch in Model)
+        {
+           
+                <td @watch.ProductImage </td>
+                <td>@watch.ProductName</td>
+                <td>@watch.BrandPro</td>
+                <td>@String.Format("{0:C0}", watch.ProductPrice)</td>
+            
+        }
+    </tbody>
+</table>
+

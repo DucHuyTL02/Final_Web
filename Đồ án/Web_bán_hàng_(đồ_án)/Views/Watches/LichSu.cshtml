@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "LichSu";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<h2 class="center-text">Lịch Sử Mua Hàng</h2>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên Khách Hàng</th>
+            <th scope="col">Tên Đồng Hồ</th>
+            <th scope="col">Ngày Mua</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Trạng Thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <th scope="row">@order.Mã</th>
+                <td>@order.TenKH</td>
+                <td>@order.Tên</td>
+                <td>@order.Ngay.ToString("dd/MM/yyyy")</td>
+                <td>@order.Giá.ToString("C")</td>
+                <td>@order.Thông_tin</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

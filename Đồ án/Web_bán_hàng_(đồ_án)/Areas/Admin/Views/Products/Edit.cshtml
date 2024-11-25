@@ -1,0 +1,76 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { area = "Admin" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.Partial("PV_Product")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Product")
+</div>
+
+@section Scripts {
+    <script>
+        // Hiển thị hình ảnh sau khi chọn file
+        document.getElementById("ImageUploader").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("PreviewImage");
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "#";
+                preview.style.display = "none";
+            }
+        });
+
+        // Hiển thị hình ảnh từ URL
+        function previewURLImage(url) {
+            const preview = document.getElementById("PreviewURLImage");
+            if (url) {
+                preview.src = url;
+                preview.style.display = "block";
+            } else {
+                preview.src = "#";
+                preview.style.display = "none";
+            }
+        }
+
+        // Hiển thị hoặc ẩn input dựa trên tùy chọn
+        function toggleImageInput(option) {
+            if (option === 'Upload') {
+                document.getElementById('UploadInput').style.display = 'block';
+                document.getElementById('URLInput').style.display = 'none';
+                document.getElementById('PreviewURLImage').style.display = 'none'; // Ẩn preview URL khi chọn upload
+            } else if (option === 'URL') {
+                document.getElementById('UploadInput').style.display = 'none';
+                document.getElementById('URLInput').style.display = 'block';
+                document.getElementById('PreviewImage').style.display = 'none'; // Ẩn preview upload khi chọn URL
+            }
+        }
+    </script>
+}

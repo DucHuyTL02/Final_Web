@@ -1,0 +1,60 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.LoginMV
+@{
+    ViewBag.Title = "Đăng nhập ";
+
+}
+
+
+
+<!DOCTYPE HTML>
+<head lang="vi">
+    <meta name="description" content="Tài Khoản Đăng Nhập" />
+    <meta charset="utf-8" />
+    <title>Đăng nhập/Đăng kí</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <link href="~/Content/StyleCustomer/StyleLogin.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="TrangLogin">
+        <div id="Login">
+            <h1>Đăng nhập</h1>
+            <div>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                <form id="form">
+                    <div class="Trangchinh">
+                        <i class="fas fa-user"></i>
+                        <label for="name" class="description">@Html.LabelFor(m => m.Username)</label><br />
+                        @Html.TextBoxFor(m => m.Username, new { @class = "input-box" })
+                        @Html.ValidationMessageFor(m => m.Username)
+
+                    </div>
+                    <div class="Trangchinh">
+                        <i class="fas fa-lock"></i>
+                        <label for="password" class="description"> @Html.LabelFor(m => m.Password)</label><br />
+                        @Html.PasswordFor(m => m.Password, new { @class = "input-box" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                    <div id="remember">
+                        <label><input type="checkbox" />Nhớ mật khẩu</label>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn-login1">Đăng nhập</button>
+                    <div class="input">
+                        <label for="register">Bạn chưa có tài khoản?</label>
+                        <a style="color:red" ; href="@Url.Action("Register","Account")">Đăng kí</a>
+                    </div>
+                    <div class="input">
+                        <a style="color:white" ; href="@Url.Action("trangchu","Home")">Quay về trang chủ</a>
+                    </div>
+                </form>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+
+
+

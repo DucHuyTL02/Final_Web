@@ -1,0 +1,144 @@
+﻿﻿/* Chat Box Styles */
+.chat-box {
+    display: none;
+    position: fixed;
+    right: 100px;
+    bottom: 80px; /* Dịch lên trên */
+    width: 400px; /* Rộng hơn */
+    height: 500px; /* Cao hơn */
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+.chat-button {
+    position: fixed; /* Cố định vị trí nút chat */
+    bottom: 20px; /* Vị trí cách mép dưới của màn hình */
+    left: 20px; /* Vị trí cách mép trái của màn hình */
+    background-color: black; /* Màu nền đen */
+    border: none; /* Xóa viền */
+    border-radius: 50%; /* Bo tròn */
+    width: 60px; /* Kích thước chiều rộng của hình tròn */
+    height: 60px; /* Kích thước chiều cao của hình tròn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1001; /* Đảm bảo nút chat nằm trên chat box */
+}
+
+.chat-icon {
+    font-size: 2rem; /* Tăng kích thước của biểu tượng */
+    color: white; /* Màu biểu tượng */
+}
+
+/* Chat Header */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+}
+
+.chat-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Chat Body */
+.chat-body {
+    padding: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+    .chat-body p {
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #e1e1e1;
+    }
+
+.chat-options button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid #f23c3c;
+    color: #f23c3c;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+}
+
+    .chat-options button:hover {
+        background-color: black;
+        color: white;
+    }
+
+/* Chat Footer */
+.chat-footer {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.continue-chat {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .continue-chat:hover {
+        background-color: #d63232;
+    }
+
+/* Slide Bar Phải */
+.right-slide-bar {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+    .right-slide-bar button {
+        width: 70px; /* To hơn */
+        height: 70px; /* To hơn */
+        margin-bottom: 15px; /* Khoảng cách lớn hơn giữa các nút */
+        background-color: #5a5a5a;
+        border: none;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px; /* Font to hơn */
+    }
+
+        .right-slide-bar button:hover {
+            background-color: #444;
+        }

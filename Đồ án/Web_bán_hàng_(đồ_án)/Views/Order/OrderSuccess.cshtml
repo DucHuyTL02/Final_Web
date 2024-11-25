@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Xác Nhận Thanh Toán";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml"; // Layout chính của bạn
+}
+
+<div class="container text-center">
+    <div class="confirmation-message" style="margin-top: 50px; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+        <h1 style="color: green;">Thanh Toán Thành Công!</h1>
+        <p>Cảm ơn bạn đã mua hàng tại cửa hàng chúng tôi.</p>
+
+        <div style="margin: 20px 0;">
+            <strong>Mã đơn hàng:</strong> @ViewBag.OrderID <br />
+            <strong>Ngày đặt hàng:</strong> @ViewBag.OrderDate.ToString("dd/MM/yyyy") <br />
+            <strong>Tổng thanh toán:</strong> @ViewBag.TotalAmount.ToString("C", new System.Globalization.CultureInfo("vi-VN"))
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="@Url.Action("ProductList", "Product")" class="btn btn-primary">Tiếp Tục Mua Sắm</a>
+        </div>
+    </div>
+</div>
+
+

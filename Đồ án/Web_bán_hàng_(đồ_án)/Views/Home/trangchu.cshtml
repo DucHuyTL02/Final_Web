@@ -1,0 +1,103 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.HomeProductVM
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Layout</title>
+    <link href="~/Content/StyleCus/StyleHome.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("Banner", "Home")" style="text-decoration: none;">
+                <img src="~/Content/Image/Banner_home.png" class="img-fluid" ; alt="Quảng cáo" />
+                <h5 style="color: black; text-align:center;"> chương trình áp dụng từ x/x/20xx đến x/x/20xx</h5>
+            </a>
+        </div>
+    </div>
+
+    <div class="container mt-5 ">
+        <!-- Đồng hồ nam và nữ -->
+        <div class="row">
+            <!-- Đồng hồ nam -->
+            <div class="category-item male">
+                <a href="@Url.Action("Category", "Product", new { categoryId = 1 })">
+                    <div class="category-card">
+                        <img src="~/Content/Image/Nam_home.jpg" alt="Đồng hồ nam" />
+                        <h3 class="category-title">Đồng hồ nam</h3>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Đồng hồ nữ -->
+            <div class="category-item female">
+                <a href="@Url.Action("Category", "Product", new { categoryId = 2 })">
+                    <div class="category-card">
+                        <img src="~/Content/Image/Nu_home.jpg" alt="Đồng hồ nữ" />
+                        <h3 class="category-title">Đồng hồ nữ</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Đồng hồ đôi -->
+        <div class="row ">
+            <div class="category-item couple">
+                <a href="@Url.Action("Category", "Product", new { categoryId = 10 })">
+                    <div class="category-card">
+                        <img src="~/Content/Image/Dong_Ho_DOi.jpg" alt="Đồng hồ đôi"/> 
+                        <h3 class="category-title">Đồng hồ đôi</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+   @Html.Partial("FeaturedProductsVM",Model)
+    @Html.Partial("NewProductPV",Model)
+
+
+
+
+    <h1 class="center-text mt-5" style="text-align: center; color: black; font-size: 36px">Các Dịch Vụ Khác</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="@Url.Action("Warranty", "Services")" style="text-decoration: none;">
+                <img src="~/Content/Image/bao_hanh.jpg" class="img-fluid" alt="Bảo Hành" style="width: 100%; height: auto;" />
+                <h3 class="center-text mt-5" style="text-align: center; font-weight: bold;">Bảo Hành</h3>
+                <h5 style="color: black; text-align: center; font-weight: lighter;">Với hơn 20 năm kinh nghiệm, chúng tôi tự hào cung cấp dịch vụ bảo hành đồng hồ chính hãng, nhanh chóng và tận tâm</h5>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="@Url.Action("Repair", "Services")" style="text-decoration: none;">
+                <img src="~/Content/Image/sua.jpg" class="img-fluid" alt="Sửa Chữa" style="width: 100%; height: auto;" />
+                <h3 class="center-text mt-5" style="text-align: center; font-weight: bold;">Sửa Chữa</h3>
+                <h5 style="color: black; text-align: center; font-weight: lighter;">Sở Hữu đội ngũ chuyên nghiệp, chúng tôi đảm bảo sẽ "thay da đổi thịt" cho những chiếc đồng hồ của quý khách.</h5>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="@Url.Action("OtherServices", "Services")" style="text-decoration: none;">
+                <img src="~/Content/Image/khac.jpg" class="img-fluid" alt="Dịch Vụ Khác" style="width: 100%; height: auto;" />
+                <h3 class="center-text mt-5" style="text-align: center; font-weight: bold;">Dịch Vụ Khác</h3>
+                <h5 style="color: black; text-align: center; font-weight: lighter;">Quý khách có nhu cầu khác? Miễn là liên quan đến đồng hồ thì chúng tôi đều có thể đảm nhận</h5>
+            </a>
+        </div>
+
+
+    </div>
+</body>
+
+

@@ -1,0 +1,64 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.OrderSearchVM
+
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản Lý Đơn Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý đơn hàng</h2>
+<!-- Form tìm kiếm -->
+@using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+{
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.SearchTerm, new
+        {
+            @class = "form-control",
+            placeholder = "Nhập ID"
+        })
+    </div>
+    <div class="col-md-2">
+        @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
+                 {
+        new { Value = "Total_Asc", Text = "tổng tiền tăng dần" },
+        new { Value = "Total_Desc", Text = "tổng tiền giảm dần" }
+    }, "Value", "Text"), "Sắp xếp đơn tổng", new { @class = "form-control" })
+    </div>
+
+
+    <!-- Bảng hiển thị danh sách đơn hàng -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Khách hàng</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+                    <td>@order.TotalAmount.ToString("C")</td>
+                    <td>@order.PaymentStatus</td>
+                    <td>@order.AddressDelivery</td>
+                    <td>@order.ShippingMethod</td>
+                    <td>@order.Customer.CustomerName</td>
+                    <td>
+                        @Html.ActionLink("Chi tiết", "Details", new { id = order.OrderID }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = order.OrderID }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>
+    @Html.PagedListPager(Model.Orders, page => Url.Action("Index", new { page }))
+</div>

@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+
+
+<html>
+<head>
+    <link href="~/Content/mystyle/StyleLayoutHome.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="Header">
+        <h1> THE WORLD OF THE WATCH   </h1>
+        <h5> (THƯƠNG HIỆU ĐỒNG HỒ TỪ 1998)</h5>
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+    </div>
+    <nav>
+        <div id="menu1">
+            <ul class="menu">
+                <li> <a> @Html.ActionLink("Trang Chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </a></li>
+                <li class="menucon">
+                    <a href="#">Thương Hiệu</a>
+                    <ul class="PhongCach">
+                        <li>
+                            <a href="#">Các thương hiệu hot nhất</a>
+                            <ul class="Khoanggia">
+                                <li><a href="#">Rolex</a></li>
+                                <li><a href="#">Cartier</a></li>
+                                <li><a href="#">Mido</a></li>
+                                <li><a href="#">Ogival</a></li>
+                                <li><a href="#">OP</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <!---->
+
+                <li class="menucon">
+                    <a href="#">Đồng Hồ Nam</a>
+                    <ul class="PhongCach">
+                        <li>
+                            <a href="#">Khoảng giá</a>
+                            <ul class="Khoanggia">
+                                <li><a href="#">Dưới 2 Triệu</a></li>
+                                <li><a href="#">Từ 2-3 Triệu</a></li>
+                                <li><a href="#">Từ 3-4 Triệu</a></li>
+                                <li><a href="#">Từ 4-5 Triệu</a></li>
+                                <li><a href="#">Trên 5 Triệu</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Thương hiệu</a>
+                            <ul class="Thuonghieu">
+                                <li><a href="#">Casio</a></li>
+                                <li><a href="#">Citizen</a></li>
+                                <li><a href="#">KOI</a></li>
+                                <li><a href="#">Orient</a></li>
+                                <li><a href="#">G-Shock</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Chất liệu dây</a>
+                            <ul class="Day">
+                                <li><a href="#">Dây kim loại</a></li>
+                                <li><a href="#">Dây da</a></li>
+                                <li><a href="#">Dây nhựa/Cao su</a></li>
+                                <li><a href="#">Dây Titanium</a></li>
+                                <li><a href="#">Dây vải</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Swiss made(Thụy sĩ)</a>
+                            <ul class="Swissmade">
+                                <li><a href="#">Longgines</a></li>
+                                <li><a href="#">Doxa</a></li>
+                                <li><a href="#">Titoni</a></li>
+                                <li><a href="#">Tissot</a></li>
+                                <li><a href="#">Frederique Constant</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Các dòng đặc biệt</a>
+                            <ul class="Dacbiet">
+                                <li><a href="#">Đồng hồ nam Nhật Bản</a></li>
+                                <li><a href="#">Đồng hồ siêu mỏng</a></li>
+                                <li><a href="#">Đồng hồ đính kim cương</a></li>
+                                <li><a href="#">Đồng hồ lộ máy ( Skeleton)</a></li>
+                                <li><a href="#">Đồng hồ vàng 18K</a></li>
+                                <li><a href="#">Đồng hồ phiên bản giới hạn</a></li>
+                                <li><a href="#">Đồng hồ nam đính đá</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menucon">
+                    <a href="#">Đồng Hồ Nữ</a>
+                    <ul class="PhongCach">
+                        <li>
+                            <a href="#">Khoảng giá</a>
+                            <ul class="Khoanggia">
+                                <li><a href="#">Dưới 2 Triệu</a></li>
+                                <li><a href="#">Từ 2-3 Triệu</a></li>
+                                <li><a href="#">Từ 3-4 Triệu</a></li>
+                                <li><a href="#">Từ 4-5 Triệu</a></li>
+                                <li><a href="#">Trên 5 Triệu</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Thương hiệu</a>
+                            <ul class="Thuonghieu">
+                                <li><a href="#">Casio</a></li>
+                                <li><a href="#">Citizen</a></li>
+                                <li><a href="#">Daniel Wellington</a></li>
+                                <li><a href="#">Soga</a></li>
+                                <li><a href="#">Fossil</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Chất liệu dây</a>
+                            <ul class="Day">
+                                <li><a href="#">Dây kim loại</a></li>
+                                <li><a href="#">Dây da</a></li>
+                                <li><a href="#">Dây lưới</a></li>
+                                <li><a href="#">Dây dạng lắc tay</a></li>
+                                <li><a href="#">Dây vải</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Swiss made(Thụy sĩ)</a>
+                            <ul class="Swissmade">
+                                <li><a href="#">Longgines</a></li>
+                                <li><a href="#">Doxa</a></li>
+                                <li><a href="#">Titoni</a></li>
+                                <li><a href="#">Tissot</a></li>
+                                <li><a href="#">Frederique Constant</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Các dòng đặc biệt</a>
+                            <ul class="Dacbiet">
+                                <li><a href="#">Đồng hồ nữ Nhật Bản</a></li>
+                                <li><a href="#">Đồng hồ siêu mỏng</a></li>
+                                <li><a href="#">Đồng hồ đính kim cương</a></li>
+                                <li><a href="#">Đồng hồ khám xà cừ</a></li>
+                                <li><a href="#">Đồng hồ nam đính đá</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menucon">
+                    <a href="#">Đồng Hồ Đôi</a>
+                    <ul class="PhongCach">
+                        <li>
+                            <a href="#">Khoảng giá</a>
+                            <ul class="Khoanggia">
+                                <li><a href="#">Dưới 2 Triệu</a></li>
+                                <li><a href="#">Từ 2-3 Triệu</a></li>
+                                <li><a href="#">Từ 3-4 Triệu</a></li>
+                                <li><a href="#">Từ 4-5 Triệu</a></li>
+                                <li><a href="#">Trên 5 Triệu</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Thương hiệu</a>
+                            <ul class="Thuonghieu">
+                                <li><a href="#">Casio</a></li>
+                                <li><a href="#">Citizen</a></li>
+                                <li><a href="#">Doxa</a></li>
+                                <li><a href="#">KOI</a></li>
+                                <li><a href="#">Tissot</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Chất liệu dây</a>
+                            <ul class="Day">
+                                <li><a href="#">Dây kim loại</a></li>
+                                <li><a href="#">Dây da</a></li>
+                                <li><a href="#">Dây đờ mi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Các dòng đặc biệt</a>
+                            <ul class="Dacbiet2">
+                                <li><a href="#">Đồng hồ đôi Thụy Sĩ</a></li>
+                                <li><a href="#">Đồng hồ đôi Nhật Bản</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="menu2">
+            <div class="login">
+                <button type="submit" class="btn-login">   @Html.ActionLink("Đăng nhập", "Login", "Giohang", new { area = "" }, new { @class = "btn-login", style = "text-decoration:none;" }) </button>
+            </div>
+            <div class="giohang">
+                <button type="submit" class="btn-giohang">  @Html.ActionLink("Giỏ Hàng", "Giohang", "Giohang", new { area = "" }, new { @class = "btn-giohang", style = "text-decoration:none;" }) </button>
+            </div>
+        </div>
+
+
+    </nav>
+    
+    <div >
+        @RenderBody()
+    </div>
+    <div class="footer" ; style="text-align: center">
+        <p>&copy; @DateTime.Now.Year - My Watch Store</p>
+        <p>© 2024 Trang Bán Hàng</p>
+    </div>
+</body>
+</html>
+

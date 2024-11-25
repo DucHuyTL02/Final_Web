@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Xacnhan";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Nhận Đơn Hàng</title>
+    <style>
+        .confirmation-container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h2>Cảm ơn bạn đã đặt hàng!</h2>
+        <p>Đơn hàng của bạn đã được xác nhận. Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin giao hàng.</p>
+        <li> <a> @Html.ActionLink("Về Trang Chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </a></li>
+    </div>
+</body>
+</html>
+
+
+

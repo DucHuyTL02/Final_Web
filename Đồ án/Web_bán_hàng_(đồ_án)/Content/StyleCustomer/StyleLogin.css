@@ -1,0 +1,115 @@
+﻿body {
+    background: url('../Image/anh_nen.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    min-height: 100vh;
+}
+
+#TrangLogin {
+
+}
+
+#Login {
+    width: 500px;
+    border-radius: 15px;
+    padding: 50px 40px;
+    background-color: transparent;
+    border: 2px solid white;
+    backdrop-filter: blur(20px);
+}
+
+    #Login h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 50px;
+        margin-top: 0px;
+        color: white;
+    }
+
+    #Login .input-box {
+        width: 100%;
+        height: 40px;
+        border-radius: 25px;
+        border: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px solid rgba(255,255,255,.2);
+    }
+
+        #Login .input-box:hover {
+            box-shadow: white 2px 2px 2px 2px;
+            border: none;
+        }
+
+    #Login .description {
+        font-size: 15px;
+        font-family: 'Times New Roman';
+        color: white;
+    }
+
+    #Login .input-box::placeholder {
+        color: black;
+    }
+
+    #Login .input-box i {
+        position: absolute;
+    }
+
+#remember {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+    #remember a {
+        text-decoration: none;
+        color: red;
+    }
+
+        #remember a:hover {
+            text-decoration: underline;
+            color: red;
+        }
+
+.btn-login1 {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+}
+
+    .btn-login1:hover {
+        box-shadow: gray 2px 2px 5px 5px;
+        height: 60px;
+    }
+
+.input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+    .input a {
+        margin-left: 5px;
+        text-decoration: none;
+    }
+
+#Login {
+    color: white;
+}
+
+.Trangchinh .input-box {
+    border: none;
+    outline: none;
+}

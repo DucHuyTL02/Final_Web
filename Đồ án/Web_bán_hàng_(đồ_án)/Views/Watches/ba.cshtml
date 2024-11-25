@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "ba";
+    Layout = "~/Views/Shared/Layout_ChoWebKhac.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "hai";
+    Layout = "~/Views/Shared/Layout_ChoWebKhac.cshtml";
+}
+
+<!-- Views/Watches/Details.cshtml -->
+@model Web_bán_hàng__đồ_án_.Models.Watch
+
+@{
+    ViewBag.Title = "Thông Tin Sản Phẩm";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-title {
+            text-align: center;
+            color: #333;
+        }
+
+        .product-image {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .product-description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #e60000;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart, .installment {
+            display: block;
+            width: 60%;
+            margin: 10px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .add-to-cart:hover, .installment:hover {
+                background-color: #0056b3;
+            }
+
+        .details-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .product-specs, .product-details {
+            padding: 20px;
+        }
+
+        .product-specs {
+            flex: 1;
+            border-right: 1px solid #ddd;
+        }
+
+        .product-details {
+            flex: 2;
+        }
+
+        .similar-products, .reviews {
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+            .reviews .review {
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="product-title">Tissot Le Locle C61</h1>
+        <img src="~/Content/Image/33.jpg" alt="Tissot Le Locle C61" class="product-image">
+        <div class="product-description">
+            <p>
+                Đồng Hồ Olym Pianus - Nam 
+            </p>
+            <p>Mã Số Sản Phẩm: OP990-45ADGS-GL-X</p>
+        </div>
+        <div class="price">6.160.000 đ</div>
+        <a href="add_to_cart_url" class="add-to-cart">THÊM VÀO GIỎ HÀNG</a>
+        <a href="installment_url" class="installment">Trả Góp Qua Thẻ (Visa, Master, JCB)</a>
+
+        <div class="details-container">
+            <div class="product-specs">
+                <h3>Thông Số Sản Phẩm</h3>
+                <p>Thương Hiệu:  Olym Pianus</p>
+                <p>Số Hiệu Sản Phẩm: OP990-45ADGS-GL-X</p>
+                <p>Dành Cho: Nam</p>
+                <p>Vật Liệu: Kính Sapphire</p>
+                <p>Loại Máy: Cơ tự động</p>
+                <p>Thời Gian Bảo Hành: 2 năm</p>
+                <p>Dây Đeo: Dây cao su</p>
+                <p>Chức Năng: Lịch Ngày</p>
+                <p>Nơi Sản Xuất: Thụy Sĩ</p>
+            </div>
+            <div class="product-details">
+                <h3>Chi Tiết Sản Phẩm</h3>
+                <ơ>
+                    Ngay từ cái nhìn đầu tiên, Olym Pianus OP990-45ADGS-GL-X mặt xanh mang hơi thở tiểu Hublot đã ghi dấu ấn tượng với giới mộ điệu. Mặc dù có size mặt 42mm khá lớn nhưng dây cao su mềm, kích cỡ vừa phải khiến sản phẩm vẫn tạo ra sự gọn gàng trên cổ tay 15 - 18cm của nam giới. </br> </br>
+                    Cách thiết kế vành đính 30 viên đá Swarovski lấp lánh giúp nâng tầm phụ kiện trở nên sang trọng và đẳng cấp hơn. Điều đặc biệt là mỗi viên đá được cố định 4 góc chắc chắn mang đến sự yên tâm cho người dùng thoải mái hoạt động.</br> </br>
+                    Với mặt dial chải tia bắt sáng tốt, anh em sẽ chiêm ngưỡng được đồng hồ theo từng góc nhìn mới lạ mỗi khi chuyển động cổ tay. Nhờ đó, OP990-45ADGS-GL-X tạo ra hiệu ứng khác biệt trong mỗi lần ánh nắng chiếu lên bề mặt, nhấn nhá thêm cho vẻ đẹp vốn có.</br> </be>
+
+
+                </ơ>
+            </div>
+        </div>
+
+        <div class="similar-products">
+            <h3>Sản Phẩm Tương Tự</h3>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="@Url.Action("Details", "Home")" style="text-decoration: none;">
+                        <img src="~/Content/Image/1.jpg" class="img-fluid" alt="Đồng Hồ 1" style="width: 100%; height: auto;" />
+                        <h5 style="text-align:center">ROlEX Vàng Nguyên Khối</h5>
+                        <p style="text-align:center">Tissot Le Locle Powermatic 80 T006.407.16.033.00 – Nam – Automatic...</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("hai", "Watches")" style="text-decoration: none;">
+                        <img src="~/Content/Image/123aaa-1712554045.jpg" class="img-fluid" alt="Đồng Hồ 2" style="width: 100%; height: auto;" />
+                        <h5 style="text-align:center">Oriet-Nam</h5>
+                        <p style="text-align:center">Đồng Hồ Orient - Nam RA-AR0001S30B (RA-AR0001S10B)...</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("ba", "Watches")" style="text-decoration: none;">
+                        <img src="~/Content/Image/33.jpg" class="img-fluid" alt="Đồng Hồ 3" style="width: 100%; height: auto;" />
+                        <h5 style="text-align:center">Olym Pianus</h5>
+                        <p style="text-align:center">Đồng Hồ Olym Pianus - Nam OP990-45ADGS-GL-X...</p>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("bon", "Watches")" style="text-decoration: none;">
+                        <img src="~/Content/Image/44.jpg" class="img-fluid" alt="Đồng Hồ 4" style="width: 100%; height: auto;" />
+                        <h5 style="text-align:center">Casio - Nam</h5>
+                        <p style="text-align:center">Đồng Hồ Casio - Nam MTP-1374L-1AVDF...</p>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="reviews">
+            <h3>Đánh Giá</h3>
+            <div class="review">
+                <p><strong>Nguyễn Văn A</strong> - 5 sao</p>
+                <p>Đồng hồ rất đẹp và chất lượng. Tôi khá hài lòng!</p>
+            </div>
+            <div class="review">
+                <p><strong>Trần Thị B</strong> - 4 sao</p>
+                <p>Mẫu mã đẹp, nhưng dây đeo hơi cứng một chút.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿.table-responsive {
+    max-height: 400px; /* Giới hạn chiều cao để không tràn */
+    overflow-y: auto; /* Bật cuộn dọc nếu tràn */
+}
+
+.table {
+    width: 100%; /* Đảm bảo bảng co giãn theo màn hình */
+    table-layout: auto; /* Để cột tự động điều chỉnh kích thước */
+}
+
+.img-thumbnail {
+    object-fit: cover; /* Hình ảnh không bị méo */
+    height: 80px;
+    width: 80px;
+}
+
+.btn-group .btn {
+    margin-right: 5px; /* Khoảng cách giữa các nút */
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 14px; /* Giảm kích thước chữ trên màn hình nhỏ */
+    }
+}

@@ -1,0 +1,114 @@
+﻿
+
+@model IEnumerable<Web_bán_hàng__đồ_án_.Models.Watch>
+
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+   
+
+}
+
+<!--  <link rel="stylesheet" href="~/wwwroot/css/styles.css" />
+<script src="~/wwwroot/js/scripts.js"></script>/> -->
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <style>
+        .cart-container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .cart-item img {
+                width: 100px;
+            }
+
+        .cart-item-info {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            font-size: 1.2em;
+            border-top: 1px solid #ddd;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-item" data-price="100">
+            <img src="~/image/1.jpg" alt="Product Image">
+            <div class="cart-item-info">
+                <h2>Tên Sản Phẩm</h2>
+                <p>
+                    Số lượng:
+                    <input type="number" class="quantity" value="1" min="1" onchange="updateCart(this)">
+                </p>
+                <p class="item-total">Tổng tiền: $100</p>
+            </div>
+        </div>
+        <!-- Thêm nhiều sản phẩm khác nếu cần -->
+        <!--  <div class="cart-total">
+          <span>Tổng tiền đơn hàng:</span>
+          <span id="cart-total">$100</span>  -->
+    </div>
+    <div style="text-align:center">
+
+        <button type="submit" class="btn-login">   @Html.ActionLink("Thanh Toán", "Thanhtoan", "Giohang", new { area = "" }, new { @class = "btn-login", style = "text-decoration:none;" }) </button>
+
+    </div>
+
+    <script>
+        function updateCart(element) {
+            const cartItem = element.closest('.cart-item');
+            const price = parseFloat(cartItem.getAttribute('data-price'));
+            const quantity = parseInt(element.value);
+            const itemTotal = price * quantity;
+            cartItem.querySelector('.item-total').textContent = `Tổng tiền: $${itemTotal}`;
+
+            let cartTotal = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const itemPrice = parseFloat(item.getAttribute('data-price'));
+                const itemQuantity = parseInt(item.querySelector('.quantity').value);
+                cartTotal += itemPrice * itemQuantity;
+            });
+            document.getElementById('cart-total').textContent = `$${cartTotal}`;
+        }
+    </script>
+</body>
+</html>
+
+
+

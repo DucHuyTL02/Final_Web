@@ -1,0 +1,95 @@
+﻿/* Sidebar styles */
+#sidebar {
+    min-height: 100vh;
+    background-color: #fff; /* Đảm bảo nền sidebar rõ ràng */
+    border-right: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    width: 250px;
+    z-index: 1050; /* Tăng z-index để luôn nằm trên nội dung */
+    overflow-y: auto; /* Thêm scroll nếu nội dung vượt quá chiều cao màn hình */
+}
+
+    /* Sidebar navigation links */
+    #sidebar .nav-link {
+        font-size: 1rem;
+        padding: 12px 20px;
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+
+        #sidebar .nav-link:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        #sidebar .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+
+/* Main content */
+main {
+    margin-left: 250px; /* Đồng bộ với chiều rộng sidebar */
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    #sidebar {
+        transform: translateX(-100%); /* Ẩn sidebar khi thu nhỏ */
+        position: fixed;
+        top: 56px; /* Chiều cao navbar */
+        left: 0;
+        width: 250px;
+        height: calc(100vh - 56px); /* Đảm bảo chiều cao sidebar vừa với màn hình */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 1050;
+        padding-top: 10px;
+    }
+
+        #sidebar.show {
+            transform: translateX(0); /* Hiện sidebar khi cần */
+        }
+
+    main {
+        margin-left: 0; /* Nội dung chiếm toàn màn hình */
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+    }
+
+        .sidebar-overlay.show {
+            display: block;
+        }
+}
+
+/* Scrollbar customization */
+#sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+    #sidebar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }

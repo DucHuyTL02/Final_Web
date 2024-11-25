@@ -1,0 +1,44 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.ProductDetailsVM
+@{
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/StyleCustomer/StyleDetails.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="product-header">
+            <div class="product-image-container">
+                <img src="@Model.product.ProductImage" alt="@Model.product.ProductName" class="product-image">
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title">@Model.product.ProductName</h1>
+                <p class="product-id">Mã Số Sản Phẩm: @Model.product.ProductID</p>
+                <div class="price">@Model.product.ProductPrice.ToString("C", new System.Globalization.CultureInfo("vi-VN"))</div>
+
+                <div class="button-group">
+                    @Html.ActionLink("Thêm giỏ hàng", "AddToCart", "Cart", new { id = Model.product.ProductID, quantity = Model.quantity }, new { @class = "add-to-cart" })
+
+                    <a href="@Url.Action("Installment", "Payment", new { productId = Model.product.ProductID })" class="installment">
+                        Trả Góp Qua Thẻ<br>(Visa, Master, JCB)
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h3>Chi Tiết Sản Phẩm</h3>
+            <div class="product-description">
+                @Model.product.ProductDescription
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

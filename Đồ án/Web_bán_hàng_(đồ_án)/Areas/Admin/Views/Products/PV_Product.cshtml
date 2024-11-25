@@ -1,0 +1,82 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.Product
+
+
+
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Choose Image Upload Option</label>
+    <div>
+        <label>
+            <input type="radio" name="ImageOption" value="Upload" onchange="toggleImageInput('Upload')" checked /> Upload
+        </label>
+        <label>
+            <input type="radio" name="ImageOption" value="URL" onchange="toggleImageInput('URL')" /> URL
+        </label>
+    </div>
+</div>
+
+<div class="form-group" id="UploadInput">
+    @Html.Label("Upload Image", new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="file" name="UploadImage" class="form-control" id="ImageUploader" accept="image/*" />
+        <img id="PreviewImage" src="#" alt="Selected Image" style="display:none; margin-top:10px; max-width:100%; height:auto;" />
+    </div>
+</div>
+
+<div class="form-group" id="URLInput" style="display: none;">
+    @Html.Label("Image URL", new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <input type="text" name="ImageURL" class="form-control" placeholder="Enter image URL" oninput="previewURLImage(this.value)" />
+                <img id="PreviewURLImage" src="#" alt="Image from URL" style="display:none; margin-top:10px; max-width:100%; height:auto;" />
+    </div>
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.StockQuantityPro, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.StockQuantityPro, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.StockQuantityPro, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.BrandPro, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.BrandPro, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.BrandPro, "", new { @class = "text-danger" })
+    </div>
+</div>

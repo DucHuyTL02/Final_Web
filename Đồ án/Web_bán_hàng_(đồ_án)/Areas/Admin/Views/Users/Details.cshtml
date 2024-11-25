@@ -1,0 +1,39 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.UserCustomerVM
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Chi tiết Người dùng</h2>
+
+<div class="card mb-4">
+    <div class="card-header">Thông tin Tài khoản</div>
+    <div class="card-body">
+        <p><strong>Username:</strong> @Model.User.Username</p>
+        <p><strong>Password:</strong> @Model.User.Password</p>
+        <p><strong>Quyền:</strong> @(Model.User.UserRole == "A" ? "Admin" : "User")</p>
+    </div>
+</div>
+
+@if (Model.Customer != null)
+{
+    <div class="card">
+        <div class="card-header">Thông tin Khách hàng</div>
+        <div class="card-body">
+            <p><strong>Tên khách hàng:</strong> @Model.Customer.CustomerName</p>
+            <p><strong>Số điện thoại:</strong> @Model.Customer.CustomerPhone</p>
+            <p><strong>Email:</strong> @Model.Customer.CustomerEmail</p>
+            <p><strong>Địa chỉ:</strong> @Model.Customer.CustomerAddress</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Không tìm thấy thông tin khách hàng liên kết với tài khoản này.
+    </div>
+}
+
+
+<a href="@Url.Action("Index", "Users")" class="btn btn-secondary mt-3">Quay lại</a>

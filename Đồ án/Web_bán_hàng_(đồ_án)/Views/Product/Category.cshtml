@@ -1,0 +1,136 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.HomeProductVM
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+
+
+
+<h2>Danh sách sản phẩm </h2>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Đồng Hồ Nam</title>
+    <style>
+        .container {
+            max-width: 1200px; /* Giới hạn độ rộng container */
+            margin: 0 auto; /* Căn giữa */
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .product-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Khoảng cách giữa các sản phẩm */
+            justify-content: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .product img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            min-height: 50px; /* Đảm bảo chiều cao đồng nhất */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #e74c3c;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            min-height: 40px; /* Đảm bảo chiều cao đồng nhất */
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .product .product-name,
+        .product .product-price {
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product .product-price {
+            background-color: #fff;
+            font-size: 18px;
+            color: #2ecc71;
+            font-weight: bold;
+            padding: 15px 10px;
+        }
+
+        .product .product-name:hover {
+            color: #3498db;
+        }
+
+        .product a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-4">Danh mục: @Model.CategoryName</h2>
+
+        <!-- Khối chứa các sản phẩm -->
+        @if (Model.Products != null && Model.Products.Any())
+        {
+            <div class="product-row">
+                @foreach (var pro in Model.Products)
+                {
+                    <div class="product">
+                        <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })">
+                            <img src="@Url.Content(pro.ProductImage)" alt="@pro.ProductName" />
+                            <div class="product-name">@pro.ProductName</div>
+                            <div class="product-price">@pro.ProductPrice.ToString("C")</div>
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Không có sản phẩm nào trong danh mục này.</p>
+        }
+    </div>
+</body>
+</html>
+
+
+

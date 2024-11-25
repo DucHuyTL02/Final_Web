@@ -1,0 +1,206 @@
+﻿/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+.Header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+}
+
+    .Header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .Header h5 {
+        font-size: 1em;
+        color: #bdc3c7;
+    }
+
+    /* Search Box */
+    .Header input[type="text"] {
+        width: 70%;
+        max-width: 500px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+    }
+
+    .Header input[type="submit"] {
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .Header input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+/* Navigation Styles */
+nav {
+    background-color: #34495e;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+    .menu > li {
+        position: relative;
+        padding: 15px;
+    }
+
+        .menu > li > a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .menu > li > a:hover {
+                color: #3498db;
+            }
+
+/* Dropdown Styles */
+.menucon {
+    position: relative;
+}
+
+    .menucon .PhongCach {
+        display: none;
+        position: absolute;
+        background-color: white;
+        top: 100%; /* Xuống dưới menu chính */
+        left: 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .menucon:hover .PhongCach {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+.PhongCach {
+    display: flex;
+    flex-direction: column; /* Các mục trong danh mục sẽ sắp xếp dọc */
+    width: 200px; /* Điều chỉnh chiều rộng của menu con */
+}
+
+    .PhongCach li {
+        padding: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+        .PhongCach li a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .PhongCach li:hover {
+            background-color: #ecf0f1;
+        }
+
+        .PhongCach li a:hover {
+            color: #3498db;
+        }
+
+/* Menu chính nằm ngang */
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+    .menu > li {
+        position: relative;
+        padding: 15px;
+    }
+
+        .menu > li > a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .menu > li > a:hover {
+                color: #3498db;
+            }
+
+/* Menu 2 Styles */
+#menu2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #2c3e50;
+}
+
+.btn-login, .btn-giohang {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-login:hover, .btn-giohang:hover {
+        background-color: #2980b9;
+    }
+
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menucon .PhongCach {
+        position: static;
+        display: none;
+        width: 100%;
+    }
+
+    .menucon:hover .PhongCach {
+        display: flex;
+        flex-direction: column; /* Sắp xếp các mục theo cột */
+    }
+}

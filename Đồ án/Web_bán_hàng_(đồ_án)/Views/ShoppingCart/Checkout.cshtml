@@ -1,0 +1,83 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.CheckoutVM
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<h2>Checkout</h2>
+
+@if (Model.CartItems == null || !Model.CartItems.Any())
+{
+    <div class="alert alert-warning">Your cart is empty. Please add items to your cart before proceeding to checkout.</div>
+    return;
+}
+
+@using (Html.BeginForm("Checkout", "ShoppingCart", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="cart-items">
+        <h3>Your Cart</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>
+                            <img src="@item.ProductImage" alt="@item.ProductName" style="width: 50px; height: 50px;" />
+                            @item.ProductName
+                        </td>
+                        <td>@item.Quantity</td>
+                        <td>@item.UnitPrice.ToString("C")</td>
+                        <td>@item.TotalPrice.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="form-group">
+            @Html.LabelFor(m => m.TotalAmount)
+            @Html.DisplayFor(m => m.TotalAmount, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.OrderDate)
+            @Html.DisplayFor(m => m.OrderDate, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingAddress)
+            @Html.TextBoxFor(m => m.ShippingAddress, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PaymentMethod)
+            @Html.DropDownListFor(m => m.PaymentMethod, new SelectList(new[] { "Tiền mặt", "Paypal", "Mua trước trả sau" }), "Select Payment Method", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ShippingMethod)
+            @Html.DropDownListFor(m => m.ShippingMethod, new SelectList(new[] { "Standard Shipping", "Express Shipping" }), "Select Shipping Method", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </div>
+    </div>
+}
+
+<div class="back-to-cart">
+    <a href="@Url.Action("Index", "ShoppingCart")" class="btn btn-secondary">Back to Cart</a>
+</div>

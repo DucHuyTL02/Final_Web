@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Web_bán_hàng__đồ_án_.Models.ViewModel.CartItem>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<h2>Giỏ hàng của bạn</h2>
+
+<p>
+    @Html.ActionLink("Tạo đơn hàng mới", "Create", new { @class = "btn btn-success" })
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <p class="text-info text-center">
+        Giỏ hàng của bạn hiện tại đang rỗng!
+    </p>
+}
+else
+{
+    <form action="@Url.Action("UpdateCart")" method="post">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ảnh sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="@item.ProductImage" alt="@item.ProductName" style="width: 100px; height: 100px; object-fit: cover;" />
+                        </td>
+                        <td>@item.ProductName</td>
+                        <td>@item.UnitPrice.ToString("C0").Replace(",", ".")</td>
+                        <td>
+                            <input type="number" name="newAmount_@item.ProductID" value="@item.Quantity" min="1" step="1" class="form-control" />
+                        </td>
+                        <td>@item.TotalPrice.ToString("C0").Replace(",", ".")</td>
+                        <td>
+                            <button type="submit" name="updateItem_@item.ProductID" class="btn btn-warning btn-sm">
+                                Cập nhật
+                            </button>
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.ProductID }, new { @class = "btn btn-danger btn-sm", @onclick = "return confirm('Bạn có chắc muốn xóa sản phẩm này?');" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <h4 class="text-right">
+                Tổng số lượng: @Model.Sum(m => m.Quantity)
+            </h4>
+            <h4 class="text-right">
+                Tổng tiền: @Model.Sum(m => m.TotalPrice).ToString("C0").Replace(",", ".") VNĐ
+            </h4>
+        </div>
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary btn-lg">Cập nhật giỏ hàng</button>
+            @Html.ActionLink("Tiến hành thanh toán", "Checkout", new { @class = "btn btn-success btn-lg" })
+        </div>
+    </form>
+}
+

@@ -1,0 +1,71 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.RegisterVM
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link href="~/Content/StyleCustomer/StyleRegister.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<!DOCTYPE HTML>
+<head lang="vi">
+    <meta name="description" content="Tài Khoản Đăng Nhập" />
+    <meta charset="utf-8" />
+    <title>Đăng nhập/Đăng kí</title>
+</head>
+<body>
+    <div id="TrangRegister">
+        <div id="Register">
+            <h1>Đăng Kí</h1>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+        <form id="form">
+            <div>
+
+                <div id="Form-01">
+                    <div class="Form-1">
+                        <label for="name" class="description">Họ Tên</label><br />
+                        @Html.TextBoxFor(m => m.CustomerName, new { @id = "CustomerName", @class = "HoTen", @required = "required" })
+                    </div>
+                </div>
+
+            </div>
+            <div id="Form-02" style="width:100%">
+                <div class="Form-2" style="width:60%">
+                    <i class="fas fa-envelope"></i>
+                    <label for="name" class="description">Gmail</label><br />
+                    @Html.TextBoxFor(m => m.CustomerEmail, new { @id = "CustomerEmail", @class = "input-box", @type = "email" })
+                </div>
+                <div class="Form-2" style="width:40%">
+                    <i class="fas fa-sms"></i>
+                    <label for="name" class="description">Số điện thoại</label><br />
+                    @Html.TextBoxFor(m => m.CustomerPhone, new { @id = "CustomerPhone", @class = "input-box", @required = "required" })
+                </div>
+
+            </div>
+            <div class="Trangchinh">
+                <i class="fas fa-user"></i>
+                <label for="name" class="description">Tên đăng nhập</label><br />
+                @Html.TextBoxFor(m => m.Username, new { @id = "Username", @class = "input-box", @required = "required" })
+            </div>
+            <div class="Trangchinh">
+                <i class="fas fa-lock"></i>
+                <label for="password" class="description">Mật khẩu</label><br />
+                @Html.PasswordFor(m => m.Password, new { @id = "Password", @class = "input-box", @required = "required" })
+            </div>
+            <div class="Trangchinh">
+                <i class="fas fa-lock"></i>
+                <label for="password" class="description">Xác thực mật khẩu</label><br />
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "ConfirmPassword", @class = "input-box", @required = "required" })
+            </div>
+            <div id="remember">
+                <label><input type="checkbox" />Nhớ mật khẩu</label>
+            </div>
+            <button type="submit" id="btn-register">Đăng kí</button>
+            <div class="input">
+                <label for="register">Bạn đã tài khoản?</label>
+                <a style="color:red" ; href="~/Account/Login">Đăng nhập</a>
+            </div>
+        </form>
+            <a href="~/Home/trangchu" style="display:flex;justify-content:center;color:white;text-decoration:none;font-size:30px">Quay lại trang chủ</a>
+            }
+            </div>
+    </div>
+
+</body>

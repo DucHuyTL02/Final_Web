@@ -1,0 +1,76 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.SearchProductVN
+
+@{
+    ViewBag.Title = "Quản Lý Sản Phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm("Product", "Products", FormMethod.Get))
+{
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.SearchTerm, new
+   {
+       @class = "form-control",
+       placeholder = "Nhập tên , mô tả sản phẩm"
+   })
+    </div>
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.MinPrice, new
+        {
+            @class = "form-control",
+            placeholder = "Giá thấp nhất",
+            type = "number"
+        })
+    </div>
+    <div class="col-md-3">
+        @Html.TextBoxFor(m => m.MaxPrice, new
+        {
+            @class = "form-control",
+            placeholder = "Giá cao nhất",
+            type = "number"
+
+        })
+    </div>
+    <div >
+        <div class="col-md-2">
+            @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
+            {
+                new { Value = "price_Asc", Text = "Giá tăng dần" },
+                new { Value = "price_Desc", Text = "Giá giảm dần" }
+            }, "Value", "Text"), "Sắp xếp giá", new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
+            {
+                new { Value = "name_Asc", Text = "Tên A-Z" },
+                new { Value = "name_Desc", Text = "Tên Z-A" }
+            }, "Value", "Text"), "Xếp thứ tự tên", new { @class = "form-control" })
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+}
+@Html.Partial("ProductListVM", Model)
+
+
+
+
+
+<style>
+    .table-responsive {
+        max-height: auto;
+        overflow-y: auto;
+    }
+
+    .img-thumbnail {
+        object-fit: cover;
+        height: 80px;
+        width: 80px;
+    }
+
+    .btn-group .btn {
+        margin-right: 2px;
+    }
+</style>

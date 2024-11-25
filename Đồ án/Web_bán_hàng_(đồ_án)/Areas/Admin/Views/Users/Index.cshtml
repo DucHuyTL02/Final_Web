@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Web_bán_hàng__đồ_án_.Models.User>
+
+@{
+    ViewBag.Title = "Quản lý người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý Người dùng</h2>
+
+@using (Html.BeginForm("Index", "Users", FormMethod.Get))
+{
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <!-- Dropdown Role -->
+            @Html.DropDownList("role", (SelectList)ViewBag.RoleList, new { @class = "form-control", onchange = "this.form.submit()" })
+        </div>
+        <div class="col-md-6">
+            <!-- Search Box -->
+            @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Tìm kiếm tài khoản..." })
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Tìm kiếm</button>
+        </div>
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Quyền</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Password</td>
+                <td>@(user.UserRole == "A" ? "Admin" : "User")</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = user.Username }  , new { @class = "btn btn-info btn-sm" }) |
+
+                    @Html.ActionLink("Chi tiết", "Details", new { id = user.Username }, new { @class = "btn btn-info btn-sm" })|
+                    @Html.ActionLink("Delete", "Delete", new { id = user.Username }, new { @class = "btn btn-info btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
