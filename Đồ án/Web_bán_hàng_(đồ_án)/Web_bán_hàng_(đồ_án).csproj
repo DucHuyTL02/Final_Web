@@ -136,7 +136,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
@@ -148,7 +147,6 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
-    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\WatchesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,6 +188,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>LTW.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\AdminVM.cs" />
     <Compile Include="Models\ViewModel\Cart.cs" />
     <Compile Include="Models\ViewModel\CartItem.cs" />
     <Compile Include="Models\ViewModel\CartService.cs" />
@@ -200,7 +199,7 @@
     <Compile Include="Models\ViewModel\ProductDetailsVM.cs" />
     <Compile Include="Models\ViewModel\RegisterVM.cs" />
     <Compile Include="Models\ViewModel\SearchProductVN.cs" />
-    <Compile Include="Models\ViewModel\ShoppingCartModel.cs" />
+    <Compile Include="Models\ViewModel\TopProductVm.cs" />
     <Compile Include="Models\ViewModel\UserCustomerVM.cs" />
     <Compile Include="Models\Watch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,6 +244,8 @@
     <EmbeddedResource Include="Content\Image\register.jpg" />
     <EmbeddedResource Include="Content\Image\sua.jpg" />
     <EmbeddedResource Include="Content\Image\tissort.jpg" />
+    <Content Include="Content\Image\baohanh.png" />
+    <Content Include="Content\Image\dichvukh.jpg" />
     <Content Include="Content\Image\empty-cart.png" />
     <Content Include="Content\Image\recycle-bin-icon-trash-can-260nw-1716184591.jpg" />
     <Content Include="Content\Image\suadongho.jpg" />
@@ -284,8 +285,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Admin\TrangAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHome\Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\TrangChuAdmin.cshtml" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
@@ -296,7 +296,6 @@
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Product.cshtml" />
     <Content Include="Areas\Admin\Views\Products\PV_Product.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductListVM.cshtml" />
@@ -369,6 +368,10 @@
     <Content Include="Views\ShoppingCart\Checkout.cshtml" />
     <Content Include="Views\Home\ProductDetails.cshtml" />
     <Content Include="Views\Order\OrderSuccess.cshtml" />
+    <Content Include="Views\Account\History.cshtml" />
+    <Content Include="Views\Account\HistoryDetails.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

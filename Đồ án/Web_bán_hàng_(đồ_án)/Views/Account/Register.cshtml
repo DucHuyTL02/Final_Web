@@ -1,4 +1,5 @@
 ﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.RegisterVM
+@using Web_bán_hàng__đồ_án_.Models
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 <link href="~/Content/StyleCustomer/StyleRegister.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
@@ -54,10 +55,15 @@
                 <label for="password" class="description">Xác thực mật khẩu</label><br />
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @id = "ConfirmPassword", @class = "input-box", @required = "required" })
             </div>
-            <div id="remember">
-                <label><input type="checkbox" />Nhớ mật khẩu</label>
+            <div class="Trangchinh">
+                <i class="fas fa-lock"></i>
+                <label for="password" class="description">Địa Chỉ</label><br />
+                @Html.TextBoxFor(m => m.CustomerAddress, new { @id = "CustomerAddress ", @class = "input-box", @required = "required" })
             </div>
             <button type="submit" id="btn-register">Đăng kí</button>
+            <p id="error-message" style="color: red;">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </p>
             <div class="input">
                 <label for="register">Bạn đã tài khoản?</label>
                 <a style="color:red" ; href="~/Account/Login">Đăng nhập</a>

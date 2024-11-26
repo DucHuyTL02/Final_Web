@@ -12,7 +12,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh Sách Đồng Hồ Nam</title>
     <style>
-        <style >
+        /* Khung trưng bày chính */
+.product-showcase {
+    width: 100%;
+    overflow-x: auto; /* Hiển thị thanh cuộn ngang nếu cần */
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+/* Thanh cuộn ngang */
+.product-scroll {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các sản phẩm */
+    align-items: flex-start; /* Căn chỉnh các sản phẩm theo chiều dọc */
+    white-space:nowrap;
+}
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -44,24 +58,28 @@
         <!-- Khối chứa các sản phẩm -->
         @if (Model.FeaturedProducts != null && Model.FeaturedProducts.Any())
         {
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                @foreach (var pro in Model.FeaturedProducts)
-                {
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })">
-                                <img src="@Url.Content(pro.ProductImage)" class="card-img-top" alt="@pro.ProductName" />
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title text-truncate">@pro.ProductName</h5>
-                                <p class="card-text text-danger fw-bold">@pro.ProductPrice.ToString("C")</p>
+            <div class="product-showcase" style="max-height:400px;">
+                <div class="product-scroll"     >
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                        @foreach (var pro in Model.FeaturedProducts)
+                        {
+                            <div class="col">
+                                <div class="card h-100 shadow-sm">
+                                    <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })">
+                                        <img src="@Url.Content(pro.ProductImage)" class="card-img-top" alt="@pro.ProductName" />
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-truncate">@pro.ProductName</h5>
+                                        <p class="card-text text-danger fw-bold">@pro.ProductPrice.ToString("C")</p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })" class="btn btn-primary">Xem chi tiết</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-footer text-center">
-                                <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })" class="btn btn-primary">Xem chi tiết</a>
-                            </div>
-                        </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
         }
 

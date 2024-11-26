@@ -19,7 +19,7 @@
 <body>
     <div class="Header">
         <!-- Header -->
-        <div class="container text-center py-4">
+        <div class="container text-center py-4 " >
             <h1 class="display-4">THE WORLD OF THE WATCH</h1>
             <h5 class="text-muted">(THƯƠNG HIỆU ĐỒNG HỒ TỪ 1998)</h5>
             <div class="mt-3 search-container">
@@ -31,19 +31,19 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
+    <nav style="background-color:orange" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+        <div style="background-color:orange" class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div  class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li><a class="navbar-brand" href="@Url.Action("trangchu", "Home")">Trang Chủ</a></li>
                     <li class="nav-item">
                         @Html.ActionLink("Tất cả Sản Phẩm", "ProductList", "Product", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="@Url.Action("FilterWatches", "Home", new { category = 1 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Productlist", "Product", new { categoryID = 1 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
                             Đồng Hồ Nam
                         </a>
                         <div class="dropdown-menu">
@@ -51,25 +51,25 @@
                                 <!-- Cột Khoảng giá -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Khoảng giá</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Dưới 2 Triệu", category = 1 })">Dưới 2 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Từ 2-6 Triệu", category = 1 })">Từ 2-6 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Trên 6 Triệu", category = 1 })">Trên 6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  maxPrice = 2000000, categoryID = 1 })">Dưới 2 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 2000000,maxPrice=6000000, categoryID = 1 })">Từ 2-6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 6000000, categoryID = 1 })">Trên 6 Triệu</a>
                                 </div>
 
                                 <!-- Cột Thương hiệu -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Thương hiệu</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Casio", category = 1 })">Casio</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Citizen", category = 1 })">Citizen</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "KOI", category = 1 })">KOI</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Orient", category = 1 })">Orient</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "G-Shock", category = 1 })">G-Shock</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Casio", categoryID = 1 })">Casio</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Citizen", categoryID = 1 })">Citizen</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "KOI", categoryID = 1 })">KOI</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Orient", categoryID = 1 })">Orient</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "G-Shock", categoryID = 1 })">G-Shock</a>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="@Url.Action("FilterWatches", "Home", new { category = 2 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Productlist", "Product", new { categoryID = 2 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
                             Đồng Hồ Nữ
                         </a>
                         <div class="dropdown-menu">
@@ -77,45 +77,45 @@
                                 <!-- Cột Khoảng giá -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Khoảng giá</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Dưới 2 Triệu", category = 2 })">Dưới 2 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Từ 2-6 Triệu", category = 2 })">Từ 2-6 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Trên 6 Triệu", category = 2})">Trên 6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  maxPrice = 2000000, categoryID = 2 })">Dưới 2 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 2000000,maxPrice=6000000, categoryID = 2 })">Từ 2-6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 6000000, categoryID = 2 })">Trên 6 Triệu</a>
                                 </div>
 
                                 <!-- Cột Thương hiệu -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Thương hiệu</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Casio", category = 2 })">Casio</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Citizen", category = 2 })">Citizen</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "KOI", category = 2 })">KOI</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Orient", category = 2 })">Orient</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "G-Shock", category = 2 })">G-Shock</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Casio", categoryID = 2 })">Casio</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Citizen", categoryID = 2 })">Citizen</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "KOI", categoryID = 2 })">KOI</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Orient", categoryID = 2 })">Orient</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "G-Shock", categoryID = 2 })">G-Shock</a>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="@Url.Action("FilterWatches", "Home", new { category = 3 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
-                            Đồng Hồ Đôi
+                        <a class="nav-link dropdown-toggle" href="@Url.Action("Productlist", "Product", new { categoryID = 10 })" id="navbarDropdown1" role="button" data-toggle="dropdown">
+                            Đồng Hồ Nam
                         </a>
                         <div class="dropdown-menu">
                             <div class="dropdown-row">
                                 <!-- Cột Khoảng giá -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Khoảng giá</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Dưới 2 Triệu", category = 3 })">Dưới 2 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Từ 2-6 Triệu", category = 3 })">Từ 2-6 Triệu</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { giua = "Khoảng giá", filterValue = "Trên 6 Triệu", category = 3 })">Trên 6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  maxPrice = 2000000, categoryID = 10 })">Dưới 2 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 2000000,maxPrice=6000000, categoryID = 10 })">Từ 2-6 Triệu</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new {  minPrice = 6000000, categoryID = 10 })">Trên 6 Triệu</a>
                                 </div>
 
                                 <!-- Cột Thương hiệu -->
                                 <div class="dropdown-column">
                                     <h6 class="dropdown-header">Thương hiệu</h6>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Casio", category = 3 })">Casio</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Citizen", category = 3 })">Citizen</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "KOI", category = 3 })">KOI</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "Orient", category = 3 })">Orient</a>
-                                    <a class="dropdown-item" href="@Url.Action("FilterWatches", "Home", new { filterType = "Brand", filterValue = "G-Shock", category = 3 })">G-Shock</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Casio", categoryID = 10 })">Casio</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Citizen", categoryID = 10 })">Citizen</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "KOI", categoryID = 10 })">KOI</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "Orient", categoryID = 10 })">Orient</a>
+                                    <a class="dropdown-item" href="@Url.Action("Productlist", "Product", new { brand = "G-Shock", categoryID = 10 })">G-Shock</a>
                                 </div>
                             </div>
                         </div>
@@ -129,8 +129,8 @@
                                 @Session["Username"]
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="@Url.Action("Customer", "Account")">Thông Tin Cá Nhân</a>
-                                <a class="dropdown-item" href="@Url.Action("PurchaseHistory", "Account")">Lịch Sử Mua Hàng</a>
+                                <a class="dropdown-item" href="@Url.Action("Profile", "Account")">Thông Tin Cá Nhân</a>
+                                <a class="dropdown-item" href="@Url.Action("History", "Account")">Lịch Sử Mua Hàng</a>
                                 <a class="dropdown-item" href="@Url.Action("Logout", "Account")">Đăng Xuất</a>
                             </div>
                         </li>
@@ -152,15 +152,16 @@
             </div>
         </div>
     </nav>
+    
     <!-- Main Content -->
     <div class="container mt-4">
         @RenderBody()
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <footer class="bg-dark text-white mt-4">
-        <div class="container py-4">
-            <div class="row">
+    <footer   class="bg-dark text-white mt-4">
+        <div  class="container py-4">
+            <div  class="row">
 
                 <div class="col-md-3">
                     <h5 class="text-primary" style="color:cornflowerblue">THÔNG TIN LIÊN HỆ</h5>
@@ -223,7 +224,7 @@
     <div class="footer" ; style="text-align: center">
         <p>© 2024 Trang Bán Hàng</p>
     </div>
-</body>
+
 
 <head>
     <meta charset="UTF-8">
@@ -273,5 +274,5 @@
 
     <script src="~/Content/JS/JSSlideBar.js"></script>
 </body>
-
+    </body>
 

@@ -1,68 +1,234 @@
 ﻿
+
+
 @{
-    @{
-        ViewBag.Title = "Dịch Vụ Khác";
-        Layout = "~/Views/Shared/Layout_ChoWebKhac.cshtml";
-    }
+    ViewBag.Title = "Dịch Vụ Khác";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
 
-    <!DOCTYPE html>
-    <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dịch Vụ Khác</title>
-        <style>
-            .container {
-                width: 80%;
-                margin: auto;
-                font-family: Arial, sans-serif;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ Khác</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .other-services {
+            margin-top: 20px;
+        }
+
+            .other-services h3 {
+                margin-bottom: 10px;
+                color: #007bff;
             }
 
-            .section-title {
-                text-align: center;
+            .other-services p {
+                margin-bottom: 10px;
+            }
+
+
+
+        /* Phần container tổng */
+        .banner-container {
+            background-color: black; /* Màu nền */
+            color: white; /* Màu chữ */
+            text-align: center;
+            padding: 50px 20px; /* Tạo khoảng cách trên dưới */
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Các tiêu đề */
+        .banner-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .banner-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .banner-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .banner-content hr {
+            width: 100px;
+            border: 1px solid white;
+            margin: 20px auto;
+        }
+
+        /* Các nút bấm */
+        .banner-buttons {
+            margin-top: 20px;
+        }
+
+        .btn-banner {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: transparent;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-banner:hover {
+                background-color: white;
+                color: #770000;
+            }
+
+
+        .overview-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .overview-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+            .overview-text h2 {
+                font-size: 28px;
                 color: #333;
-                margin-top: 20px;
+                margin-bottom: 20px;
             }
 
-            .content {
-                padding: 20px;
+            .overview-text p {
                 line-height: 1.6;
-                border-bottom: 1px solid #ddd;
+                margin-bottom: 15px;
+                color: #555;
             }
 
-            .other-services {
-                margin-top: 20px;
+        .overview-banner img {
+            max-width: 320px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-image {
+            width: 100%; /* Chiều rộng tự động phù hợp với khung cha */
+            max-width: 800px; /* Giới hạn chiều rộng tối đa */
+            height: auto; /* Giữ tỷ lệ gốc của ảnh */
+            margin: 0 auto; /* Căn giữa nếu cần */
+            display: block; /* Đảm bảo ảnh là block để áp dụng căn chỉnh */
+            border-radius: 10px; /* (Tuỳ chọn) Bo góc nếu cần */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* (Tuỳ chọn) Thêm đổ bóng */
+        }
+
+        /* Dòng sản phẩm được lựa chọn nhiều */
+        .products-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 20px;
+        }
+
+            .products-section h2 {
+                font-size: 28px;
+                color: #333;
+                margin-bottom: 30px;
             }
 
-                .other-services h3 {
-                    margin-bottom: 10px;
-                    color: #007bff;
-                }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
 
-                .other-services p {
-                    margin-bottom: 10px;
-                }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="section-title">Dịch Vụ Khác</h1>
-            <div class="content">
-                <p>Chúng tôi cung cấp nhiều dịch vụ khác để đáp ứng mọi nhu cầu của khách hàng về đồng hồ.</p>
-                <div class="other-services">
-                    <h3>Thay Dây Đeo Đồng Hồ</h3>
-                    <p>Chúng tôi có sẵn nhiều loại dây đeo từ các chất liệu khác nhau như da, kim loại, cao su, phù hợp với mọi sở thích và phong cách.</p>
+        .product-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            transition: box-shadow 0.3s ease;
+        }
 
-                    <h3>Đánh Bóng Đồng Hồ</h3>
-                    <p>Dịch vụ đánh bóng giúp đồng hồ của bạn luôn sáng bóng như mới.</p>
+            .product-item:hover {
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            }
 
-                    <h3>Khắc Chữ Lên Đồng Hồ</h3>
-                    <p>Dịch vụ khắc chữ lên đồng hồ để tạo dấu ấn cá nhân hoặc làm quà tặng ý nghĩa.</p>
+            .product-item img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
 
-                    <h3>Kiểm Tra Và Bảo Dưỡng Định Kỳ</h3>
-                    <p>Chúng tôi cung cấp dịch vụ kiểm tra và bảo dưỡng định kỳ để đảm bảo đồng hồ của bạn luôn hoạt động tốt.</p>
+            .product-item h3 {
+                font-size: 18px;
+                color: #444;
+                margin-bottom: 10px;
+            }
+
+            .product-item p {
+                font-size: 16px;
+                color: #888;
+            }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="banner-content">
+            <h3>Dịch Vụ Khách Hàng - Doanh Nghiệp</h3>
+            <h1><b>DỊCH VỤ</b></h1>
+            <p>In logo doanh nghiệp lên đồng hồ</p>
+            <hr />
+
+
+
+            <!-- Tổng quan về quà tặng doanh nghiệp -->
+            <section class="overview-section">
+                <div class="overview-text">
+                    <h2>Tổng Quan Về Quà Tặng Doanh Nghiệp</h2>
+                    <p>
+                        Trong thị trường cạnh tranh ngày nay, câu hỏi làm thế nào để lấy được cảm tình của khách hàng khiến nhiều doanh nghiệp đau đầu.
+                        Để có câu trả lời hoàn hảo, cụm từ quà tặng doanh nghiệp được nhiều chiến lược gia nhắc đến.
+                    </p>
+                    <p>
+                        Các doanh nghiệp thường tung ra những sản phẩm quà tặng cảm ơn đối tác vào những dịp kỷ niệm. Món quà đó vừa tri ân khách hàng,
+                        vừa hỗ trợ quảng bá cho doanh nghiệp.
+                    </p>
                 </div>
-            </div>
+                <div class="overview-banner">
+                    <img src="~/Content/Image/dichvukh.jpg" alt="Quà Tặng Doanh Nghiệp" class="banner-image" />
+                </div>
+            </section>
+
+
+
+
         </div>
-    </body>
+    </div>
+</body>
 </html>

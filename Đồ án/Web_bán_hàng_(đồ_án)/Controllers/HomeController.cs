@@ -24,7 +24,7 @@ namespace Web_bán_hàng__đồ_án_.Controllers
             }
             int pageNumber = page ?? 1;
             int pageSize = 4;
-            model.FeaturedProducts = products.OrderByDescending(p=>p.OrderDetails.Count()).Take(4).ToList();
+            model.FeaturedProducts = products.OrderByDescending(p=>p.OrderDetails.Count()).Take(8).ToList();
             model.NewProducts=products.OrderBy(p => p.OrderDetails.Count()).Take(10).ToPagedList(pageNumber, pageSize);
             return View(model);
 

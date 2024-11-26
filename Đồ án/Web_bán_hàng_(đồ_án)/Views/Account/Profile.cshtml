@@ -1,0 +1,22 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.UserCustomerVM
+@{
+    ViewBag.Title = "UserCustomer";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <h1 class="mb-4">Thông Tin Cá Nhân</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Thông Tin Khách Hàng</h5>
+            <p><strong>Tên Khách Hàng:</strong> @Model.CustomerName</p>
+            <p><strong>Số Điện Thoại:</strong> @Model.CustomerPhone</p>
+            <p><strong>Email:</strong> @Model.CustomerEmail</p>
+            <p><strong>Địa Chỉ:</strong> @Model.CustomerAddress</p>
+        </div>
+    </div>
+    <td><a href="@Url.Action("EditProfile", "Account")" class="btn-blue">Chỉnh sửa</a></td>
+</div>
+

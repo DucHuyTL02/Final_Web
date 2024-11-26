@@ -1,4 +1,4 @@
-﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.SearchProductVN
+﻿    @model Web_bán_hàng__đồ_án_.Models.ViewModel.SearchProductVN
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "ProductList";
@@ -80,50 +80,79 @@
     </style>
 </head>
 <body>
+
     @using (Html.BeginForm("ProductList", "Product", FormMethod.Get))
     {
-        <div class="col-md-3">
-            @Html.TextBoxFor(m => m.SearchTerm, new
-       {
-           @class = "form-control",
-           placeholder = "Nhập tên , mô tả sản phẩm"
-       })
-        </div>
-        <div class="col-md-3">
-            @Html.TextBoxFor(m => m.MinPrice, new
-            {
-                @class = "form-control",
-                placeholder = "Giá thấp nhất",
-                type = "number"
-            })
-        </div>
-        <div class="col-md-3">
-            @Html.TextBoxFor(m => m.MaxPrice, new
-            {
-                @class = "form-control",
-                placeholder = "Giá cao nhất",
-                type = "number"
+        <div style="display:flex ">
+            <div class="col-md-3">
+                <label for="CategoryID" class="form-label">Danh mục</label>
+                <select id="CategoryID" name="categoryID" class="form-select" onchange="this.form.submit()">
+                    <option value="">-- Tất cả --</option>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.CategoryID" @(Model.CategoryID == category.CategoryID ? "selected" : "")>
+                            @category.CategoryName
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="Brand" class="form-label">Thương hiệu</label>
+                <select id="Brand" name="brand" class="form-select" onchange="this.form.submit()">
+                    <option value="">-- Tất cả --</option>
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <option value="@brand" @(Model.SelectedBrand == brand ? "selected" : "")>@brand</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <br />
+                @Html.TextBoxFor(m => m.SearchTerm, new
+           {
+               @class = "form-control",
+               placeholder = "Nhập tên , mô tả sản phẩm"
+           })
+            </div>
+            <div class="col-md-3">
+                <br />
+                @Html.TextBoxFor(m => m.MinPrice, new
+                {
+               
+                    @class = "form-control",
+                    placeholder = "Giá thấp nhất",
+                    type = "number"
+                })
+            </div>
+            <div class="col-md-3">
+                <br />
+                @Html.TextBoxFor(m => m.MaxPrice, new
+                {
+                    @class = "form-control",
+                    placeholder = "Giá cao nhất",
+                    type = "number"
 
-            })
-        </div>
-        <div>
-            <div class="col-md-2">
-                @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
-                {
-                    new { Value = "price_Asc", Text = "Giá tăng dần" },
-                    new { Value = "price_Desc", Text = "Giá giảm dần" }
-                }, "Value", "Text"), "Sắp xếp giá", new { @class = "form-control" })
+                })
             </div>
-            <div class="col-md-2">
-                @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
-                {
-                    new { Value = "name_Asc", Text = "Tên A-Z" },
-                    new { Value = "name_Desc", Text = "Tên Z-A" }
-                }, "Value", "Text"), "Xếp thứ tự tên", new { @class = "form-control" })
+            <div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
+                    {
+                        new { Value = "price_Asc", Text = "Giá tăng dần" },
+                        new { Value = "price_Desc", Text = "Giá giảm dần" }
+                    }, "Value", "Text"), "Sắp xếp giá", new { @class = "form-control" })
+                </div>
+                <div class="col-md-2">
+                    @Html.DropDownListFor(m => m.SortOrder, new SelectList(new[]
+                    {
+                        new { Value = "name_Asc", Text = "Tên A-Z" },
+                        new { Value = "name_Desc", Text = "Tên Z-A" }
+                    }, "Value", "Text"), "Xếp thứ tự tên", new { @class = "form-control" })
+                </div>
             </div>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            <div>
+                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+            </div>
         </div>
     }
     @if (Model.Products != null && Model.Products.Any())
@@ -137,7 +166,7 @@
                 {
                     <div class="col">
                         <div class="card h-100 shadow-sm">
-                            <a href="@Url.Action("ProductDetails", "Home", new { id = pro.ProductID })">
+                            <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })">
                                 <img src="@Url.Content(pro.ProductImage)" class="card-img-top" alt="@pro.ProductName" />
                             </a>
                             <div class="card-body">
@@ -145,7 +174,7 @@
                                 <p class="card-text text-danger fw-bold">@pro.ProductPrice.ToString("C")</p>
                             </div>
                             <div class="card-footer text-center">
-                                <a href="@Url.Action("ProductDetails", "Home", new { id = pro.ProductID })" class="btn btn-primary">Xem chi tiết</a>
+                                <a href="@Url.Action("ProductDetails", "Product", new { id = pro.ProductID })" class="btn btn-primary">Xem chi tiết</a>
                             </div>
 
                         </div>

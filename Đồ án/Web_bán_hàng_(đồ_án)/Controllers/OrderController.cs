@@ -83,7 +83,6 @@ namespace Web_bán_hàng__đồ_án_.Controllers
                 switch (model.PaymentMethod)
                 {
                     case "Tiền mặt": paymentStatus = "Thanh toán tiền mặt"; break;
-                    case "Paypal": paymentStatus = "Thanh toán paypal"; break;
                     case "Mua trước trả sau": paymentStatus = "Trả góp"; break;
                     default: paymentStatus = "Chưa thanh toán"; break;
                 }

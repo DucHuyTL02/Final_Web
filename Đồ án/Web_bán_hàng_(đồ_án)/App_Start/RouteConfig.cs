@@ -28,6 +28,11 @@ namespace Web_bán_hàng__đồ_án_
            url: "Product/List",
            defaults: new { controller = "Product", action = "ProductList" }
        );
+            routes.MapRoute(
+    name: "History",
+    url: "lich-su-mua-hang",
+    defaults: new { controller = "Account", action = "History" }
+);
 
         }
     }

@@ -10,6 +10,7 @@ namespace Web_bán_hàng__đồ_án_.Models.ViewModel
         {
             public Product product { get; set; }
             public int quantity { get; set; }
+            public int CategoryID {  get; set; } 
 
             public decimal estimatedValue => quantity * product.ProductPrice;
             public int PageNumber { get; set; }

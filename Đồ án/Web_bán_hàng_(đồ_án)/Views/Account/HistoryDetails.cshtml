@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "HistoryDetails";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Chi Tiết Đơn Hàng #@Model.OrderID</h2>
+    <p><strong>Ngày đặt:</strong> @Model.OrderDate.ToString("dd/MM/yyyy")</p>
+    <p><strong>Tổng tiền:</strong> @Model.TotalAmount.ToString("C")</p>
+    <p><strong>Trạng thái:</strong> @Model.PaymentStatus</p>
+
+    <h3>Sản Phẩm</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Hình Ảnh</th>
+                <th>Mã Sản Phẩm</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Số Lượng</th>
+                <th>Giá</th>
+                <th>Thành Tiền</th>
+                <th>Hành Đô</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.OrderDetails)
+            {
+                <tr>
+                    <td><img src="@Url.Content(@detail.Product.ProductImage)" style="height:50px;width:50px"/></td>
+                    <td>@detail.Product.ProductID</td>
+                    <td>@detail.Product.ProductName</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.UnitPrice.ToString("C")</td>
+                    <td>@(detail.Quantity * detail.UnitPrice)</td>
+                    <td><a href="@Url.Action("ProductDetails", "Home", new { id = detail.Product.ProductID })" class="btn-blue">Xem chi tiết sản phẩm</a></td>
+                    <td>
+                        <div class="button-group">
+                            @Html.ActionLink("Mua lại", "AddToCart", "Cart", new { id = detail.Product.ProductID, quantity = detail.Quantity }, new { @class = "add-to-cart" })
+                        </div>
+                    </td>
+                </tr>
+                
+    }
+</tbody>
+    </table>
+
+    
+</div>
+<style>
+    .add-to-cart {
+        background-color: #ff4d4d;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+        .add-to-cart:hover {
+            background-color: #e60000;
+        }
+
+    /* Nút màu xanh lá */
+    .btn-blue {
+        background-color: deepskyblue;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+        .btn-blue:hover {
+            background-color: blue;
+            color:black;
+        }
+</style>
+

@@ -23,9 +23,7 @@
                 <div class="button-group">
                     @Html.ActionLink("Thêm giỏ hàng", "AddToCart", "Cart", new { id = Model.product.ProductID, quantity = Model.quantity }, new { @class = "add-to-cart" })
 
-                    <a href="@Url.Action("Installment", "Payment", new { productId = Model.product.ProductID })" class="installment">
-                        Trả Góp Qua Thẻ<br>(Visa, Master, JCB)
-                    </a>
+                   
                 </div>
 
 

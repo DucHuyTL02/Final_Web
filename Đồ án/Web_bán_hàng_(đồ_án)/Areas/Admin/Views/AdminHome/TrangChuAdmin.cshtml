@@ -1,0 +1,74 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.AdminVM    
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <h1 class="mb-4">Thống Kê Trang Quản Trị</h1>
+    <div class="row">
+        <!-- Tổng số khách hàng -->
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Khách Hàng</h5>
+                    <p class="card-text">@Model.TotalCustomers</p>
+                </div>
+            </div>
+        </div>
+        <!-- Tổng số đơn hàng -->
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Đơn Hàng</h5>
+                    <p class="card-text">@Model.TotalOrders</p>
+                </div>
+            </div>
+        </div>
+        <!-- Tổng doanh thu -->
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Doanh Thu</h5>
+                    <p class="card-text">@String.Format("{0:C}", Model.TotalRevenue)</p>
+                </div>
+            </div>
+        </div>
+        <!-- Tổng số sản phẩm -->
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Sản Phẩm</h5>
+                    <p class="card-text">@Model.TotalProducts</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản phẩm bán chạy nhất -->
+    <div class="mt-5">
+        <h3>Sản Phẩm Bán Chạy Nhất</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Số Lượng Bán</th>
+                    <th>Doanh Thu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.TopSellingProducts)
+                {
+                    <tr>
+                        <td>@product.ProductName</td>
+                        <td>@product.QuantitySold</td>
+                        <td>@String.Format("{0:C}", product.TotalRevenue)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -13,6 +13,6 @@ namespace Web_bán_hàng__đồ_án_.Models.ViewModel
 
         [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Password { get; set; }    
     }
 }

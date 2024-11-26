@@ -1,0 +1,34 @@
+﻿@model Web_bán_hàng__đồ_án_.Models.ViewModel.UserCustomerVM
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("EditProfile", "Account  ", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Username) <!-- Truyền Username -->
+    <div>
+        @Html.LabelFor(m => m.CustomerName)
+        @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.CustomerPhone)
+        @Html.TextBoxFor(m => m.CustomerPhone, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.CustomerEmail)
+        @Html.TextBoxFor(m => m.CustomerEmail, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.CustomerAddress)
+        @Html.TextBoxFor(m => m.CustomerAddress, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+}
+
+
+

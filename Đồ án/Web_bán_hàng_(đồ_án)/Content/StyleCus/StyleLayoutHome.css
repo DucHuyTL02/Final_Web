@@ -1,0 +1,76 @@
+﻿.search-container {
+    display: flex;
+    flex-direction: column; /* Xếp các phần tử theo cột */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    margin-top: 20px; /* Khoảng cách trên */
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px; /* Đặt chiều rộng tối đa */
+    margin-bottom: 10px; /* Khoảng cách với nút tìm kiếm */
+}
+
+.search-button {
+    width: auto; /* Chiều rộng của nút */
+}
+/* Container chính của dropdown */
+.dropdown-menu {
+    display: flex;
+    flex-direction: column; /* Đảm bảo mỗi hàng là một khối */
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Hàng chứa các cột (Khoảng giá và Thương hiệu) */
+.dropdown-row {
+    display: flex;
+    flex-direction: row; /* Các cột nằm ngang */
+    gap: 20px; /* Khoảng cách giữa các cột */
+}
+
+/* Cột Khoảng giá hoặc Thương hiệu */
+.dropdown-column {
+    display: flex;
+    flex-direction: column; /* Các mục trong cột sẽ chải dọc */
+    flex: 1; /* Đảm bảo mỗi cột chiếm không gian bằng nhau */
+}
+
+/* Header của từng cột */
+.dropdown-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Các mục trong dropdown */
+.dropdown-item {
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    color: #212529;
+    text-align: center;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Tránh xuống dòng trong mục */
+}
+
+    .dropdown-item:hover {
+        background-color: #007bff;
+        color: white;
+    }
+nav-item dropdown {
+    margin-left: 330px;
+}
+nav li{
+    display:inline;
+    margin-left:45px;
+}
+
+nav {
+    background-color: red;
+
+}
+    

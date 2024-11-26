@@ -46,8 +46,8 @@
                     <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
                     <td>@order.TotalAmount.ToString("C")</td>
                     <td>@order.PaymentStatus</td>
-                    <td>@order.AddressDelivery</td>
-                    <td>@order.ShippingMethod</td>
+                    <td>@order.PaymentMethod</td>
+                    <td>@order.ShippingAddress</td>
                     <td>@order.Customer.CustomerName</td>
                     <td>
                         @Html.ActionLink("Chi tiết", "Details", new { id = order.OrderID }, new { @class = "btn btn-info btn-sm" }) |
